@@ -35,10 +35,6 @@ limitations under the License.
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-
-    <bigtable.projectID>YOUR_PROJECT_ID</bigtable.projectID>
-    <bigtable.instanceID>YOUR_INSTANCE_ID</bigtable.instanceID>
     <failOnMissingWebXml>false</failOnMissingWebXml>
   </properties>
 
@@ -49,9 +45,6 @@ limitations under the License.
       <version>1.7.0</version>
  
     </dependency>
-
-
-    <!-- Test Dependencies -->
 
     <dependency>
       <groupId>com.google.truth</groupId>

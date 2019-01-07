@@ -34,6 +34,8 @@ cd java11/bigquery
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
+   # Also, set the JAVA_HOME variable for Maven to pick the correct JDK:
+   export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64
 ```
 
 - If this is the first time you are creating an App Engine project

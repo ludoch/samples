@@ -18,6 +18,8 @@ More configuration information [at this page](https://cloud.google.com/sql/docs/
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
+   # Also, set the JAVA_HOME variable for Maven to pick the correct JDK:
+   export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64
 ```
 
 * If this is your first time creating an App engine application:

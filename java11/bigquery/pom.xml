@@ -38,7 +38,7 @@
   <dependencies>
     <!-- Note: all dependencies are provided, and coming from the
     dependent-jars created below that contains all deps. 
-    After App Engine Stagingm you can see the content in 
+    After App Engine Staging you can see the content in 
     ${project.build.directory}/dependent-jars!-->
     <dependency>
       <groupId>com.google.appengine.demo</groupId>

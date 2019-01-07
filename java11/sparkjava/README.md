@@ -33,15 +33,14 @@ Setup
 3. Ensure that you have Maven installed and configured to use Java 11. See
    installation instructions [here](https://maven.apache.org/install.html).
 
-Running locally
----------------
+4. If you are using the Google Cloud Shell, change the default JDK to Java11:
+```
+   sudo update-alternatives --config java
+   # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
+   # Also, set the JAVA_HOME variable for Maven to pick the correct JDK:
+   export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64
+```
 
-Run the application on your local machine by typing the following into your
-command line from the `sparkjava` directory: `mvn clean package exec:java`.
-Navigate to `localhost:8080` to view and interact with the application.
-
-Deploying
----------
 
 If you've enabled billing (step 1 in [Setup](#Setup)), you can deploy the
 application to the web by running `mvn appengine:deploy` from your command line
