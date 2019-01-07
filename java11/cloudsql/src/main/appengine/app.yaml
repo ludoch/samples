@@ -1,0 +1,10 @@
+runtime: java11
+instance_class: F2
+entrypoint: 'java -cp * com.google.appengine.demo.jettymain.Main warfile.war'
+env_variables:
+  DB_INSTANCE: openjdk11:us-central1:sqlludojava11
+  DB_DATABASE: ludojava11database
+  DB_USER: root
+  DB_PASSWORD: password
+  # See bug: https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/issues/110
+  CLOUD_SQL_FORCE_UNIX_SOCKET: true

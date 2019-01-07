@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.1.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.example.appengine</groupId>
+  <artifactId>springboot-j11</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springboot-j11</name>
+  <description>AppEngine project for Spring Boot Java11</description>
+
+  <properties>
+    <java.version>11</java.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-rest-hal-browser</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>2.0.0-rc4</version>
+        <configuration>
+          <version>springboot</version>
+          <promote>false</promote>
+          <extraFilesDirectory>${project.build.directory}/alternateLocation</extraFilesDirectory>
+              <artifact>${project.build.directory}</artifact>
+
+        </configuration>
+      </plugin>
+      
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-dependency-plugin</artifactId>
+         <version>3.1.1</version>
+         <executions>
+           <execution>
+             <id>unpack</id>
+             <phase>install</phase>
+             <goals>
+               <goal>unpack</goal>
+             </goals>
+             <configuration>
+               <artifactItems>
+                 <artifactItem>
+                   <groupId>com.example.appengine</groupId>
+                   <artifactId>springboot-j11</artifactId>
+                   <version>0.0.1-SNAPSHOT</version>
+                   <overWrite>true</overWrite>
+                   
+                   <outputDirectory>${project.build.directory}/alternateLocation</outputDirectory>
+                   <includes>**/*.class,**/*.xml,**/*.properties,**/*.jar,**/*.MF</includes>
+                   <excludes>**/*test.class</excludes>
+                 </artifactItem>
+               </artifactItems>
+               
+               <overWriteReleases>false</overWriteReleases>
+               <overWriteSnapshots>true</overWriteSnapshots>
+             </configuration>
+           </execution>
+         </executions>
+       </plugin>
+    </plugins>
+
+  </build>
+
+</project>
