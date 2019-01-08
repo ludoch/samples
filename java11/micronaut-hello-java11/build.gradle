@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.4"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE"
+        classpath "net.ltgt.gradle:gradle-apt-plugin:0.15"
+    }
+}
+
+version "0.1"
+group "example"
+
+apply plugin:"io.spring.dependency-management"
+apply plugin:"com.github.johnrengelman.shadow"
+apply plugin:"application"
+apply plugin:"java"
+apply plugin:"net.ltgt.apt-eclipse"
+apply plugin:"net.ltgt.apt-idea"
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://jcenter.bintray.com" }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'io.micronaut:micronaut-bom:1.0.3'
+    }
+}
+
+dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut:micronaut-validation"
+    annotationProcessor "io.micronaut.configuration:micronaut-openapi"
+    compile "io.micronaut:micronaut-http-client"    
+    compile "io.micronaut:micronaut-http-server-netty"
+    compile "io.micronaut:micronaut-inject"
+    compile "io.micronaut:micronaut-runtime"
+    compile "io.micronaut.configuration:micronaut-hibernate-validator"
+    
+    compile "io.swagger.core.v3:swagger-annotations:2.0.4"
+    compileOnly "io.micronaut:micronaut-inject-java"
+    runtime "ch.qos.logback:logback-classic:1.2.3"
+    testCompile "io.micronaut:micronaut-inject-java"
+    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.1"
+    testCompile "org.mockito:mockito-junit-jupiter:2.22.0"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
+}
+
+shadowJar {
+    mergeServiceFiles()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
+
+mainClassName = "example.Application"
+compileJava.options.compilerArgs += '-parameters'
+compileTestJava.options.compilerArgs += '-parameters'
