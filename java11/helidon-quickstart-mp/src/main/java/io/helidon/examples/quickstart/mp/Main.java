@@ -36,12 +36,13 @@ public final class Main {
      * @param args command line arguments
      * @throws IOException if there are problems reading logging properties
      */
-    public static void main(final String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException, InterruptedException {
         setupLogging();
 
         Server server = startServer();
 
         System.out.println("http://localhost:" + server.getPort() + "/greet");
+        while(true) Thread.sleep(1000);
     }
 
     /**

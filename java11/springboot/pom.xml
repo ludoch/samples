@@ -49,13 +49,13 @@
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
-        <version>2.0.0-rc4</version>
+        <version>2.0.0-rc5</version>
         <configuration>
           <version>springboot</version>
           <promote>false</promote>
-          <extraFilesDirectory>${project.build.directory}/alternateLocation</extraFilesDirectory>
-              <artifact>${project.build.directory}</artifact>
-
+          <!-- <artifact> is needed to just put the app.yaml and an emtpy content in appengine-staging. The real code content
+          comes from the unpack of the fatjar below, not the fatjat itself. -->
+          <artifact>${project.build.directory}</artifact>
         </configuration>
       </plugin>
       
@@ -78,7 +78,7 @@
                    <version>0.0.1-SNAPSHOT</version>
                    <overWrite>true</overWrite>
                    
-                   <outputDirectory>${project.build.directory}/alternateLocation</outputDirectory>
+                   <outputDirectory>${project.build.directory}/appengine-staging</outputDirectory>
                    <includes>**/*.class,**/*.xml,**/*.properties,**/*.jar,**/*.MF</includes>
                    <excludes>**/*test.class</excludes>
                  </artifactItem>

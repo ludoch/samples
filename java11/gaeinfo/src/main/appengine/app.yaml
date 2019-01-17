@@ -1,3 +1,3 @@
 runtime: java11
 instance_class: F2
-entrypoint: 'java --illegal-access=deny -cp * com.google.appengine.demo.jettymain.Main warfile.war'
+entrypoint: 'java --illegal-access=permit -agentpath:/srv/cprof/profiler_java_agent.so=--logtostderr -cp * com.google.appengine.demo.jettymain.Main warfile.war'

@@ -97,19 +97,43 @@ Copyright 2019 Google Inc.
             </goals>
             <configuration>
               <outputDirectory>
-                ${project.build.directory}/dependent-jars
+                ${project.build.directory}/appengine-staging
               </outputDirectory>
             </configuration>
           </execution>
         </executions>
       </plugin>
       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.7</version>
+        <executions>
+          <execution>
+            <id>copy-resource-one</id>
+            <phase>install</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/appengine-staging/cprof</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/main/appengine</directory>
+                  <includes>
+                    <include>profiler_java_agent.so</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+        
+      <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>appengine-maven-plugin</artifactId>
-        <version>2.0.0-rc4</version>
+        <version>2.0.0-rc5</version>
         <configuration>
-          <version>java11jettysimplejar</version>
-          <extraFilesDirectory>${project.build.directory}/dependent-jars</extraFilesDirectory>
+          <version>gaeinfo</version>
           <promote>false</promote>
         </configuration>
       </plugin>

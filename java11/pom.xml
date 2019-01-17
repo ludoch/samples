@@ -42,8 +42,10 @@
     <module>cloudsql-postgres</module>
     <module>gaeinfo</module>
     <module>helidon-quickstart-mp</module>
+    <module>micronaut-hello-java11</module>
     <module>spanner</module>
     <module>sparkjava</module>
     <module>springboot</module>
+    <module>smallest-fatjar</module>
   </modules>
 </project>
