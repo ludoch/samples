@@ -1,10 +1,5 @@
 # Smallest Google App Engine Java 11 Standard Application
 
-![AppEngine logo](appEngine.png)
-
-
-
-
 
 ## Setup
 
@@ -27,11 +22,11 @@ gcloud auth application-default login
 In the directory containing the Main.java and the app.yaml file, just deploy the application with the Cloud SDK command line:
 
 ```
-gcloud app deploy --project=<your project id>
+gcloud app deploy --project=<yourprojectid>
 ```
 
 ## See the application page
-Navigate to http://your project id.appspot.com URL, you ahould see the following page:
+Navigate to http://yourprojectid.appspot.com URL, you ahould see the following page:
 
 ```
 Hello World from Google App Engine Java 11.
