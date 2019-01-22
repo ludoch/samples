@@ -14,6 +14,7 @@ Engine standard Java 11
 
 
 * If you are using the Google Cloud Shell, change the default JDK to Java11:
+
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
@@ -38,10 +39,24 @@ Engine standard Java 11
 
 * Note the **Instance connection name** under Overview > properties
 
-## Deploying: First, edit the [app.yaml](src/main/appengine/app.yaml) with the correct database configuration.
+## Configuring the Env Variables in app.yaml
+
+Edit the [app.yaml](src/mail/appengine/app.yaml) file and change the 4 env variables to match your environment:
+
+```
+env_variables:
+  DB_INSTANCE: PROJECT:us-central1:instance
+  DB_DATABASE: DBname
+  DB_USER: postgres
+  DB_PASSWORD: password
+  # See bug: https://github.com/GoogleCloudPlatform/cloud-sql-jdbc-socket-factory/issues/110
+  CLOUD_SQL_FORCE_UNIX_SOCKET: true
+```
+
+## Deploying
 
 ```bash
-$ mvn clean appengine:deploy
+ mvn clean package appengine:deploy -Dapp.deploy.projectId=<your-project-id>
 ```
 
 

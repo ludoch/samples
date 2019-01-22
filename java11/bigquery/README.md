@@ -26,11 +26,13 @@ cd java11/bigquery
 ## Setup
 
 - Make sure [`gcloud`](https://cloud.google.com/sdk/docs/) is installed and initialized:
+
 ```
    gcloud init
 ```
 
 - If you are using the Google Cloud Shell, change the default JDK to Java11:
+
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
@@ -59,10 +61,11 @@ few moments and try again.
 ## Deploy
 
 - Deploy to AppEngine standard environment using the following Maven command.
+
 ```
-   mvn appengine:deploy
+   mvn appengine:deploy -Dapp.deploy.projectId=<your-project-id>
 ```
-- Direct your browser to `https://<your-project-id>.appspot.com`.
+- Direct your browser to `https://bigquery-dot-<your-project-id>.appspot.com`.
 - View more in-depth metrics data on the [StackDriver Monitoring Dashboard][dashboard]
 
 [dashboard]: https://pantheon.corp.google.com/monitoring

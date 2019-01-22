@@ -58,11 +58,14 @@ public class Main {
   }
 }
 ```
-
 Here is the app.yaml:
 
 ```
 runtime: java11
+instance_class: F2
 entrypoint: java Main.java
 ```
+
+You can see we take advantage of a new JDK11 feature that can compile on the fly a given Java source code with the ```java``` command and execute it. The simple source code uses the JDK embedded Web Server, configured with a single handler, listening to port 8080.
+
 

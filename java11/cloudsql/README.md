@@ -15,6 +15,7 @@ More configuration information [at this page](https://cloud.google.com/sql/docs/
 
 
 * If you are using the Google Cloud Shell, change the default JDK to Java11:
+
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
@@ -39,12 +40,22 @@ More configuration information [at this page](https://cloud.google.com/sql/docs/
 
 * Note the **Instance connection name** under Overview > properties
 
+## Configuring the Env Variables in app.yaml
+
+Edit the [app.yaml](src/mail/appengine/app.yaml) file and change the 4 env variables to match your environment
+
+```
+env_variables:
+  DB_INSTANCE: PROJECT:us-central1:INSTANCE
+  DB_DATABASE: DBNAME
+  DB_USER: root
+  DB_PASSWORD: password
+```
 
 ## Deploying
 
-Make sure you edit the env variables defined in [app.yaml](src/mail/appengine/app.yaml) to correspond to your database.
 ```bash
-$ mvn clean package appengine:deploy
+$ mvn clean package appengine:deploy -Dapp.deploy.projectId=<your-project-id>
 ```
 
 ## Cleaning up

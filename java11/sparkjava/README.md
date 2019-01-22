@@ -34,6 +34,7 @@ Setup
    installation instructions [here](https://maven.apache.org/install.html).
 
 4. If you are using the Google Cloud Shell, change the default JDK to Java11:
+
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
@@ -45,6 +46,17 @@ Setup
 If you've enabled billing (step 1 in [Setup](#Setup)), you can deploy the
 application to the web by running `mvn appengine:deploy` from your command line
 (from the `sparkjava` directory).
+
+Compile and Deploy the application
+-----------------
+
+If you do not want to run the local tests (that involves setting up the Cloud API emulator), you can juyt type:
+
+```
+mvn clean install appengine:deploy -DskipTests -Dapp.deploy.projectId=YOURPROJECTID
+```
+
+You can access the deployed application under http://sparkjava-java11.YOURPROJECTID.appspot.com
 
 How does it work?
 -----------------

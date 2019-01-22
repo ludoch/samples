@@ -96,7 +96,8 @@ limitations under the License.
         <version>2.0.0-rc5</version>
         <configuration>
           <artifact>${project.build.directory}/sparkjava-j11-1.0-jar-with-dependencies.jar</artifact>
-          <version>sparkjava-java11</version>
+	  <version>sparkjava-java11</version>
+	  <promote>false</promote>
         </configuration>
       </plugin>
     </plugins>

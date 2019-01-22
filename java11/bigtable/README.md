@@ -18,6 +18,7 @@ Initialize the Google Cloud SDK using:
 Then you need to [Create a Cloud Bigtable Instance](https://cloud.google.com/bigtable/docs/creating-instance)
 
 * If you are using the Google Cloud Shell, change the default JDK to Java11:
+
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
@@ -27,11 +28,11 @@ Then you need to [Create a Cloud Bigtable Instance](https://cloud.google.com/big
 
 ## Using Maven
 
-First, edit the  private static final String INSTANCEID in the [Main.java](src/main/java/com/example.bigtable/Main.java) 
+First, edit the  private static final String INSTANCEID in the [Main.java](src/main/java/com/example.bigtable/Main.java) with the correct INSTANCEID you configured.
 
 ### Deploy to App Engine Standard for Java 11
 
-    mvn appengine:deploy
+    mvn appengine:deploy -Dapp.deploy.projectId=<your-project-id>
 
 
 ### When done

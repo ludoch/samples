@@ -13,6 +13,7 @@ Engine standard Java 11
     `gcloud init`
 
 * If you are using the Google Cloud Shell, change the default JDK to Java11:
+
 ```
    sudo update-alternatives --config java
    # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
@@ -33,6 +34,6 @@ Engine standard Java 11
 
 ### Deploying
 
-    $ mvn appengine:deploy
+    $ mvn appengine:deploy -Dapp.deploy.projectId=<your-project-id>
 
 
