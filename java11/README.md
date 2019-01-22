@@ -9,6 +9,9 @@ standard Java 11 environment.
 
 ## Prerequisites
 
+
+**App Engine Java 11 private Alpha** Please, become part of the App Engine [Alpha program](https://docs.google.com/forms/d/e/1FAIpQLSf5uE5eknJjFEmcVBI6sMitBU0QQ1LX_J7VrA_OTQabo6EEEw/viewform) for Java11 and wait for approval.
+
 ### Download Maven
 
 These samples use the [Apache Maven][maven] build system. Before getting
@@ -35,18 +38,20 @@ access control, billing, and services.
 [cloud-console]: https://console.cloud.google.com/
 
 
-## Samples
+## List of Samples
+  
+ - [smallest-sample](smallest-sample)
+ - [smallest-fatjar](smallest-fatjar)
+ - [gaeinfo](gaeinfo)
+ - [helidon-quickstart-mp](helidon-quickstart-mp)
+ - [sparkjava](sparkjava)
+ - [Big Table](bigtable)
+ - [cloudsql](cloudsql)
+ - [PostGreSQL](cloud-sqlpostgres)
+ - [springboot](springboot)
+ - [spanner](spanner)
+ - [bigquery](bigquery)
 
-bigtable
-cloudsql-postgres
-springboot
-appengine-simple-jetty-main
-gaeinfo
-spanner
-bigquery
-cloudsql
-helidon-quickstart-mp
-sparkjava
 
 
 ### appengine-simple-jetty-main
@@ -55,22 +60,5 @@ This is not a sample per se, but a shared artifact as a Jar Main Class that can 
 You will see some samples, creating a warfile.war which is used as an argument in the App Engine app.yaml entrypoint field.
 This is basically a Jetty Embedded server, supporting JSPs, loading a given war file as a "/" webcontext and listening to port 8080 as a Main class.
 
-- [Code](appengine-simple-jetty-main)
-
-
-### cloudsql-postgres
-
-This sample demonstrates how to use the [Google Cloud Postgress][appid] with App Engine Java.
-
-- [Documentation][https://cloud.google.com/sql/docs/postgres/]
-- [Code](postgres/README.md)
-
-
-### bigtable
-
-- [BigTable Sample Applications][bigtable]
-
-[bigtable]: https://cloud.google.com/bigtable
-
-
+- [appengine-simple-jetty-main](appengine-simple-jetty-main)
 
