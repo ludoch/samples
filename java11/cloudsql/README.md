@@ -52,6 +52,27 @@ env_variables:
   DB_PASSWORD: password
 ```
 
+## Cloud SQL Driver dependencies
+
+See the dependencies in the pom.xml: the first one is the standard Cloud SQL driver
+and the second one (1.0.12 or later for Java11 support) is the Google SQL Socket factory
+that is used to connect to the Java11 runtime socket configured for accessing Google
+Cloud SQL.
+
+```
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>5.1.47</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.cloud.sql</groupId>
+      <artifactId>mysql-socket-factory</artifactId>
+      <version>1.0.12</version>
+    </dependency>
+```
+
 ## Deploying
 
 ```bash

@@ -53,6 +53,29 @@ env_variables:
   CLOUD_SQL_FORCE_UNIX_SOCKET: true
 ```
 
+## Postgresql Driver dependencies
+
+See the dependencies in the pom.xml: the first one is the standard Postgresql driver
+and the second one (1.0.12 or later for Java11 support) is the Google Postgresql Socket factory
+that is used to connect to the Java11 runtime socket configured for accessing Google
+Cloud Postgresql.
+
+```
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.cloud.sql</groupId>
+      <artifactId>postgres-socket-factory</artifactId>
+      <version>1.0.12</version>
+    </dependency>
+```
+
+As you can see in the sample, we also added a connection pool (from Open Source HikariCP).
+
 ## Deploying
 
 ```bash

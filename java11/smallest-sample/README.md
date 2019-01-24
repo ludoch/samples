@@ -19,7 +19,6 @@ gcloud init
 gcloud auth application-default login
 ```
 
-
 ## Deploy the application
 In the directory containing the Main.java and the app.yaml file, just deploy the application with the Cloud SDK command line:
 
@@ -58,6 +57,7 @@ public class Main {
   }
 }
 ```
+
 Here is the app.yaml:
 
 ```
@@ -67,5 +67,4 @@ entrypoint: java Main.java
 ```
 
 You can see we take advantage of a new JDK11 feature that can compile on the fly a given Java source code with the ```java``` command and execute it. The simple source code uses the JDK embedded Web Server, configured with a single handler, listening to port 8080.
-
 
