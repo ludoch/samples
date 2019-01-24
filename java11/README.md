@@ -37,8 +37,18 @@ access control, billing, and services.
 
 [cloud-console]: https://console.cloud.google.com/
 
+### Google Cloud Shell, Open JDK 11 setup:
 
-## List of Samples
+To switch to an Open JDK 11 in a Cloud shell session, you can use:
+
+```
+   sudo update-alternatives --config java
+   # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
+   # Also, set the JAVA_HOME variable for Maven to pick the correct JDK:
+   export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64
+```
+
+## List of App Engine Standard Java11 Alpha Runtime Samples
   
  - [smallest-sample](smallest-sample)
  - [smallest-fatjar](smallest-fatjar)
