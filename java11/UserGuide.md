@@ -7,13 +7,13 @@ Last updated: 2019-01-24
 Google form to apply for [Alpha](https://docs.google.com/forms/d/1gcKdMq8Xa6eDunXBDEmF20yp2BdJcFiAkbKG7FhYEVk/). Make sure you sign the Cloud [TTA document](http://cloud-tta.appspot.com) to get whitelisted.
 
 ## Introduction
-We are releasing an Alpha version of the App Engine standard Java runtime that is based on OpenJDK 11. This alpha release allows you to start testing to the Java11 runtime and help identify any issues prior to Beta and GA. This is in addition to the current Java8 GAE runtime. The new Java11 runtime is not backward compatible with the existing Java8 runtime, and does not support the Java8 App Engine Java APIs anymore. The new Java11 runtime configuration is now done with an app.yaml file instead of an appengine-web.xml. It supports arbitrary Java applications as long as they contain a Main class that can be start with the java command line. The applications must listen to port 8080 in order to be served.
+We are releasing an Alpha version of the App Engine standard Java runtime that is based on OpenJDK 11. This alpha release allows you to start testing to the Java11 runtime and help identify any issues prior to Beta and GA. This is in addition to the current Java8 GAE runtime. The new Java11 runtime is not backward compatible with the existing Java8 runtime, and does not support the Java8 App Engine Java APIs anymore. The new Java11 runtime configuration is now done with an `app.yaml` file instead of an `appengine-web.xml`. It supports arbitrary Java applications as long as they contain a Main class that can be start with the java command line. The applications must listen to port 8080 in order to be served.
 
 Please report any issues on [https://issuetracker.google.com/savedsearches/559750](https://issuetracker.google.com/savedsearches/559750) (add Java11 in the title to help the triage).
 
 ## Prerequisites
 Before you start developing, download the latest version of the Google Cloud SDK or update your Cloud SDK to the current version (231 or later):
-gcloud components update
+`gcloud components update`
 	To deploy using maven, you will need to add the App Engine Maven Plugin (version 2.0.0.rc05 or above) to your pom.xml:
 	
 ```	
@@ -28,7 +28,7 @@ And use:
 	mvn appengine:deploy command.
 	
 Other options for deploying include using the gcloud app deploy command or the App Engine Gradle plugin (version 2.0.0-rc5 or above).
-Follow the instructions for your application framework to configure the build of an executable JAR. This executable JAR must run via java -jar app.jar. For example, refer to the Spring Boot documentation.
+Follow the instructions for your application framework to configure the build of an executable JAR. This executable JAR must run via `java -jar app.jar`. For example, refer to the Spring Boot documentation.
 Feel free to upgrade your pom.xml file to use OpenJDK 11 features if needed, via:
 
 ```
@@ -39,7 +39,7 @@ Feel free to upgrade your pom.xml file to use OpenJDK 11 features if needed, via
 ```
 
 ## Java11 runtime code samples
-This is a work in progress, but you can follow the changes in the samples Github repo at: https://github.com/ludoch/samples. It contains the following samples:
+This is a work in progress, but you can follow the changes in the samples Github repo at: [https://github.com/ludoch/samples](https://github.com/ludoch/samples). It contains the following samples:
 
 * [helidon-quickstart-mp](https://github.com/ludoch/samples/java11/helidon-quickstart-mp): A simple Java EE microprofile demo.
 * [Smallest-sample](https://github.com/ludoch/samples/java11/smallest-sample): The smallest application possible without Maven, Gradle or even a local OpenJDK installation
@@ -77,16 +77,15 @@ An app.yaml file is required. Define a file that looks like this:
 runtime: java11
 instance_class: F2
 	By specifying runtime: java11, the Java11 runtime is automatically selected when you deploy a JAR (*.jar) file (or a collection of jars and resources).
-You can find other app.yaml settings in Using app.yaml.
-Contrary to the Java8 Standard runtime, you cannot configure the Java11 runtime with an appengine-web.xml.
-Note: Your app must either respond to health checks or disable them in your app.yaml configuration. For more information, see lifecycle events.
+You can find other app.yaml settings in [Using app.yaml](https://cloud.google.com/appengine/docs/standard/nodejs/configuring-your-app-with-app-yaml).
+Contrary to the Java8 Standard runtime, you cannot configure the Java11 runtime with an `appengine-web.xml`.
 
 ## Optional files
 These configuration files are optional:
-* index.yaml
-* cron.yaml
-* dispatch.yaml
-Place these files at the top level of MyDir. If you use any of these files, you must deploy them separately with the gcloud app deploy command.
+* [index.yaml](https://cloud.google.com/appengine/docs/standard/java/config/indexref-yaml)
+* [cron.yaml](https://cloud.google.com/appengine/docs/standard/java/config/cronref-yaml)
+* [dispatch.yaml](https://cloud.google.com/appengine/docs/standard/java/reference/dispatch-yaml)
+Place these files at the top level of MyDir. If you use any of these files, you must deploy them separately with the `gcloud app deploy` command.
 
 ## Default entry point
 The default entry point for the Java11 runtime is automatically calculated when you deploy a single jar myjar.jar as:
