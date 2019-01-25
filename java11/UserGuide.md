@@ -74,11 +74,16 @@ MyDir/
        
 ## 	app.yaml
 An app.yaml file is required. Define a file that looks like this:
+
+```
 runtime: java11
 instance_class: F2
-	By specifying runtime: java11, the Java11 runtime is automatically selected when you deploy a JAR (*.jar) file (or a collection of jars and resources).
+```
+
+By specifying runtime: java11, the Java11 runtime is automatically selected when you deploy a JAR (*.jar) file (or a collection of jars and resources).
 You can find other app.yaml settings in [Using app.yaml](https://cloud.google.com/appengine/docs/standard/nodejs/configuring-your-app-with-app-yaml).
 Contrary to the Java8 Standard runtime, you cannot configure the Java11 runtime with an `appengine-web.xml`.
+The instance class F2 or F4 is necessary in Alpha, as F1 is currently too small (this will be fixed in Beta).
 
 ## Optional files
 These configuration files are optional:
