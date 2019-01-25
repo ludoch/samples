@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.2.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.example.appengine</groupId>
+  <artifactId>springboot-springcloudgcp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springboot-springcloudgcp</name>
+  <description>AppEngine project for Spring Boot and Spring Cloud GCP with Java 11</description>
+
+  <properties>
+    <java.version>11</java.version>
+    <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-rest-webmvc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-gcp-starter-trace</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-gcp-starter-data-datastore</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>2.0.0-rc5</version>
+        <configuration>
+          <version>springboot</version>
+          <promote>false</promote>
+          <!-- <artifact> is needed to just put the app.yaml and an emtpy content in appengine-staging. The real code content
+          comes from the unpack of the fatjar below, not the fatjat itself. -->
+          <artifact>${project.build.directory}</artifact>
+          <projectId>GCLOUD_CONFIG</projectId>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-dependency-plugin</artifactId>
+         <version>3.1.1</version>
+         <executions>
+           <execution>
+             <id>unpack</id>
+             <phase>install</phase>
+             <goals>
+               <goal>unpack</goal>
+             </goals>
+             <configuration>
+               <artifactItems>
+                 <artifactItem>
+                   <groupId>com.example.appengine</groupId>
+                   <artifactId>springboot-springcloudgcp</artifactId>
+                   <version>0.0.1-SNAPSHOT</version>
+                   <overWrite>true</overWrite>
+                   
+                   <outputDirectory>${project.build.directory}/appengine-staging</outputDirectory>
+                   <includes>**/*.class,**/*.xml,**/*.properties,**/*.jar,**/*.MF</includes>
+                   <excludes>**/*test.class</excludes>
+                 </artifactItem>
+               </artifactItems>
+               
+               <overWriteReleases>false</overWriteReleases>
+               <overWriteSnapshots>true</overWriteSnapshots>
+             </configuration>
+           </execution>
+         </executions>
+       </plugin>
+    </plugins>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring-cloud.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>
