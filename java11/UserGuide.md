@@ -216,7 +216,7 @@ You can see all the headers, environment variables, system properties, metadata 
 ## HTTPS requests
 Use HTTPS requests to access to your App Engine app securely. Depending on how your app is configured, you have the following options:
 
-###appspot.com domains
+### appspot.com domains
 
 Simply use the https URL prefix to send HTTPS request to the default service of your GCP project, for example:
 
@@ -388,7 +388,7 @@ Use Maven to deploy your app:
 
     mvn appengine:deploy
     
-## 	Gradle
+## Gradle
 Use Gradle to deploy your app:
 
     gradle appengineDeploy
