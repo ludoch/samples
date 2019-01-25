@@ -1,4 +1,4 @@
-# Smallest Google App Engine Java 11 Standard Application
+# SpringBoot Google App Engine Java 11 Standard Application
 
 
 ## Setup

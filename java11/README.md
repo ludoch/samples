@@ -12,6 +12,8 @@ standard Java 11 environment.
 
 **App Engine Java 11 private Alpha** Please, become part of the App Engine [Alpha program](https://docs.google.com/forms/d/e/1FAIpQLSf5uE5eknJjFEmcVBI6sMitBU0QQ1LX_J7VrA_OTQabo6EEEw/viewform) for Java11 and wait for approval.
 
+[**Read the User Guide in this repository.**](UserGuide.md)
+
 ### Download Maven
 
 These samples use the [Apache Maven][maven] build system. Before getting
