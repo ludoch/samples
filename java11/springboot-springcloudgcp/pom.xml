@@ -60,7 +60,6 @@
           <!-- <artifact> is needed to just put the app.yaml and an emtpy content in appengine-staging. The real code content
           comes from the unpack of the fatjar below, not the fatjat itself. -->
           <artifact>${project.build.directory}</artifact>
-          <projectId>GCLOUD_CONFIG</projectId>
         </configuration>
       </plugin>
       

@@ -3,4 +3,4 @@ instance_class: F4
 # The entrypoint here is mandatory as the appengine-staging area contains an exploded
 # fatjar, and not the fatjar itself, so we cannot detect what to run from the exploded
 # area.
-entrypoint: 'java -cp . org.springframework.boot.loader.JarLauncher'
+entrypoint: 'java -Xmx32m -cp . org.springframework.boot.loader.JarLauncher'
