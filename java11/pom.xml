@@ -47,5 +47,6 @@
     <module>sparkjava</module>
     <module>springboot</module>
     <module>smallest-fatjar</module>
+    <module>springboot-springcloudgcp</module>
   </modules>
 </project>
