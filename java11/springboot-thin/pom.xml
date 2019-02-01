@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.1.RELEASE</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  <groupId>com.example.appengine</groupId>
+  <artifactId>springboot-j11</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>springboot-thin-j11</name>
+  <description>AppEngine project for Spring Boot Java11</description>
+
+  <properties>
+    <java.version>11</java.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-rest-hal-browser</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <dependencies>
+          <!-- package as a thin jar -->
+          <dependency>
+            <groupId>org.springframework.boot.experimental</groupId>
+            <artifactId>spring-boot-thin-layout</artifactId>
+            <version>1.0.13.RELEASE</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <!-- Copy thin jar dependencies to appengine-staging directory -->
+      <plugin>
+        <groupId>org.springframework.boot.experimental</groupId>
+        <artifactId>spring-boot-thin-maven-plugin</artifactId>
+        <version>1.0.13.RELEASE</version>
+        <configuration>
+          <outputDirectory>${project.build.directory}/appengine-staging</outputDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <id>resolve</id>
+            <goals>
+              <goal>resolve</goal>
+            </goals>
+            <inherited>false</inherited>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>appengine-maven-plugin</artifactId>
+        <version>2.0.0-rc5</version>
+        <configuration>
+          <version>springboot-thin</version>
+          <promote>false</promote>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
