@@ -48,5 +48,6 @@
     <module>springboot</module>
     <module>smallest-fatjar</module>
     <module>springboot-springcloudgcp</module>
+    <module>kotlin-ktor</module>
   </modules>
 </project>
