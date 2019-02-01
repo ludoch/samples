@@ -61,10 +61,10 @@ To switch to an Open JDK 11 in a Cloud shell session, you can use:
  - [cloudsql](cloudsql)
  - [PostGreSQL](cloud-sqlpostgres)
  - [springboot](springboot)
+ - [springboot-thin](springboot-thin)
+ - [kotlin-ktor](kotlin-ktor)
  - [spanner](spanner)
  - [bigquery](bigquery)
-
-
 
 ### appengine-simple-jetty-main
 
