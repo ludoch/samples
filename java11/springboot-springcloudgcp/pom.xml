@@ -58,7 +58,7 @@
           <version>springboot</version>
           <promote>false</promote>
           <!-- <artifact> is needed to just put the app.yaml and an emtpy content in appengine-staging. The real code content
-          comes from the unpack of the fatjar below, not the fatjat itself. -->
+          comes from the unpack of the fatjar below, not the fatjar itself. -->
           <artifact>${project.build.directory}</artifact>
         </configuration>
       </plugin>

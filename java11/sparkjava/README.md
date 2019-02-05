@@ -37,11 +37,10 @@ Setup
 
 ```
    sudo update-alternatives --config java
-   # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
+   # And select the usr/lib/jvm/java-11-openjdk-amd64/bin/java version.
    # Also, set the JAVA_HOME variable for Maven to pick the correct JDK:
-   export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64
+   export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
-
 
 If you've enabled billing (step 1 in [Setup](#Setup)), you can deploy the
 application to the web by running `mvn appengine:deploy` from your command line

@@ -21,9 +21,9 @@ Then you need to [Create a Cloud Bigtable Instance](https://cloud.google.com/big
 
 ```
    sudo update-alternatives --config java
-   # And select the /usr/lib/jvm/zulu-11-amd64/bin/java version.
+   # And select the usr/lib/jvm/java-11-openjdk-amd64/bin/java version.
    # Also, set the JAVA_HOME variable for Maven to pick the correct JDK:
-   export JAVA_HOME=/usr/lib/jvm/zulu-11-amd64
+   export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
 
 ## Using Maven

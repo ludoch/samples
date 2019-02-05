@@ -19,6 +19,15 @@ gcloud init
 gcloud auth application-default login
 ```
 
+If you are using the Google Cloud Shell, change the default JDK to Java11:
+
+```
+   sudo update-alternatives --config java
+   # And select the usr/lib/jvm/java-11-openjdk-amd64/bin/java version.
+   # Also, set the JAVA_HOME variable for Maven to pick the correct JDK:
+   export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+```
+
 ## Deploy the application
 In the directory containing the Main.java and the app.yaml file, just deploy the application with the Cloud SDK command line:
 
