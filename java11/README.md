@@ -65,6 +65,8 @@ To switch to an Open JDK 11 in a Cloud shell session, you can use:
  - [kotlin-ktor](kotlin-ktor)
  - [spanner](spanner)
  - [bigquery](bigquery)
+ - [vertx-hello](vertx-hello)
+ - [vertx-cloudsql-postgres](vertx-cloudsql-postgres)
 
 ### appengine-simple-jetty-main
 
