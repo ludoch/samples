@@ -51,5 +51,6 @@
     <module>springboot-thin</module>
     <module>kotlin-ktor</module>
     <module>vertx-hello</module>
+    <module>vertx-cloudsql-postgres</module>
   </modules>
 </project>

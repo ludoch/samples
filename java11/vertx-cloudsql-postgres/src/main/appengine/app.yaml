@@ -1,0 +1,9 @@
+runtime: java11
+instance_class: F4
+# The entry point is necessary to tell Vert.x where to store cached resources extracted from fat jars
+entrypoint: 'java -Dvertx.cacheDirBase=/tmp -jar vertx-cloudsql-postgres-j11-1.0-jar-with-dependencies.jar '
+env_variables:
+  DB_INSTANCE: gae11test:europe-west1:postgres-server
+  DB_DATABASE: postgres
+  DB_USER: postgres
+  DB_PASSWORD: password
