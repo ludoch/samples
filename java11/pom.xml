@@ -50,5 +50,6 @@
     <module>springboot-springcloudgcp</module>
     <module>springboot-thin</module>
     <module>kotlin-ktor</module>
+    <module>vertx-hello</module>
   </modules>
 </project>
