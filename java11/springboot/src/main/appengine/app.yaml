@@ -1,6 +1,11 @@
 runtime: java11
-instance_class: F4
+instance_class: F2
 # The entrypoint here is mandatory as the appengine-staging area contains an exploded
 # fatjar, and not the fatjar itself, so we cannot detect what to run from the exploded
 # area.
-entrypoint: 'java -cp . org.springframework.boot.loader.JarLauncher'
+entrypoint: 'java -XX:MaxRAM=256m -XX:ActiveProcessorCount=2 -Xms32m -Dlogging.path=/var/log -cp . org.springframework.boot.loader.JarLauncher'
+handlers:
+- url: /.*
+  script: unused
+  login: optional
+  secure: always
