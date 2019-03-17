@@ -52,5 +52,6 @@
     <module>kotlin-ktor</module>
     <module>vertx-hello</module>
     <module>vertx-cloudsql-postgres</module>
+    <module>quarkus</module>
   </modules>
 </project>
