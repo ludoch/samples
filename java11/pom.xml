@@ -45,10 +45,11 @@
     <module>micronaut-hello-java11</module>
     <module>spanner</module>
     <module>sparkjava</module>
-    <module>springboot</module>
     <module>smallest-fatjar</module>
+    <module>springboot</module>
     <module>springboot-springcloudgcp</module>
     <module>springboot-thin</module>
+    <module>springboot-webflux</module>
     <module>kotlin-ktor</module>
     <module>vertx-hello</module>
     <module>vertx-cloudsql-postgres</module>
