@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.1.RELEASE</version>
+    <version>2.1.3.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.example.appengine</groupId>
@@ -53,43 +53,8 @@
         <configuration>
           <version>springboot</version>
           <promote>false</promote>
-          <!-- <artifact> is needed to just put the app.yaml and an emtpy content in appengine-staging. The real code content
-          comes from the unpack of the fatjar below, not the fatjar itself. -->
-          <artifact>${project.build.directory}</artifact>
         </configuration>
       </plugin>
-      
-      <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-dependency-plugin</artifactId>
-         <version>3.1.1</version>
-         <executions>
-           <execution>
-             <id>unpack</id>
-             <phase>package</phase>
-             <goals>
-               <goal>unpack</goal>
-             </goals>
-             <configuration>
-               <artifactItems>
-                 <artifactItem>
-                   <groupId>com.example.appengine</groupId>
-                   <artifactId>springboot-j11</artifactId>
-                   <version>0.0.1-SNAPSHOT</version>
-                   <overWrite>true</overWrite>
-                   
-                   <outputDirectory>${project.build.directory}/appengine-staging</outputDirectory>
-                   <includes>**/*.class,**/*.xml,**/*.properties,**/*.jar,**/*.MF</includes>
-                   <excludes>**/*test.class</excludes>
-                 </artifactItem>
-               </artifactItems>
-               
-               <overWriteReleases>false</overWriteReleases>
-               <overWriteSnapshots>true</overWriteSnapshots>
-             </configuration>
-           </execution>
-         </executions>
-       </plugin>
     </plugins>
 
   </build>

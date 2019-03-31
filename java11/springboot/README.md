@@ -42,46 +42,5 @@ Here is the [app.yaml](src/manin/appengine/app.yaml):
 ```
 runtime: java11
 instance_class: F4
-# The entrypoint here is mandatory as the appengine-staging area contains an exploded
-# fatjar, and not the fatjar itself, so we cannot detect what to run from the exploded
-# area.
-entrypoint: 'java -cp . org.springframework.boot.loader.JarLauncher'
+entrypoint: 'java -XX:MaxRAM=256m -XX:ActiveProcessorCount=2 -Xmx32m -jar springboot-j11-0.0.1-SNAPSHOT.jar'
 ```
-
-This example has a workaround against the current Cloud SDK limitation of 32MB per deployed artifact. Instead of deploying the SpringBoot fat jar, in the [pom.xml](pom.xml) we explode this fat jar in the appengine-staging directory with:
-
-```
-      <plugin>
-         <groupId>org.apache.maven.plugins</groupId>
-         <artifactId>maven-dependency-plugin</artifactId>
-         <version>3.1.1</version>
-         <executions>
-           <execution>
-             <id>unpack</id>
-             <phase>install</phase>
-             <goals>
-               <goal>unpack</goal>
-             </goals>
-             <configuration>
-               <artifactItems>
-                 <artifactItem>
-                   <groupId>com.example.appengine</groupId>
-                   <artifactId>springboot-j11</artifactId>
-                   <version>0.0.1-SNAPSHOT</version>
-                   <overWrite>true</overWrite>
-                   <outputDirectory>${project.build.directory}/appengine-staging</outputDirectory>
-                   <includes>**/*.class,**/*.xml,**/*.properties,**/*.jar,**/*.MF</includes>
-                   <excludes>**/*test.class</excludes>
-                 </artifactItem>
-               </artifactItems>
-               <overWriteReleases>false</overWriteReleases>
-               <overWriteSnapshots>true</overWriteSnapshots>
-             </configuration>
-           </execution>
-         </executions>
-       </plugin>
-```
- so that each item is smaller than 32MB. 
-We then add the correct entrypoint to execute the exploded SpringBoot application jar.
-
-
