@@ -53,7 +53,7 @@
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-gcp-starter-logging</artifactId>
-    </dependency>
+    </dependency>   
     
     <!-- For tests only -->
     <dependency>
@@ -82,7 +82,7 @@
 
   <build>
     <plugins>
-          <plugin>
+    <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
     </plugin>
@@ -91,7 +91,6 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>2.0.0-rc5</version>
         <configuration>
-          <projectId>openjdk11</projectId>
           <version>springboot-springcloud-logging</version>
           <promote>false</promote>
         </configuration>
