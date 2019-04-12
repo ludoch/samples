@@ -25,6 +25,13 @@ $ curl --header "x-cloud-trace-context: [Some-Trace-ID]" localhost:8080/log
 To see the logged lines, navigate to the https://console.cloud.google.com/logs/viewer[Logging section of the Cloud Console].
 Select the `Global` resource and look under the `spring.log` channel to see the logged text.
 
+== Deploying to App Engine Standard Java11 runtime 
+Deploy the sample application from Maven:
+
+----
+$ mvn appengine:deploy
+----
+
 If your application is deployed to Google App Engine (GAE), you will instead find the logs under the deployment's resource in the Stackdriver UI under the `spring.log` channel.
 You can further narrow down the log by request by using the following filtering text that takes advantage of the trace ID label in each logged line.
 For example, when deployed to App Engine Java11 runtime (by using `mvn appengine:deploy` in this sample) you can use the following to filter by the trace ID:
