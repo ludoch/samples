@@ -1,13 +1,13 @@
-= Spring Cloud GCP Logging Starter Example
+= Spring Cloud GCP Logging Starter Example with App Engine Java11 runtime
 
-This sample application demonstrates using the
-link:../../spring-cloud-gcp-starters/spring-cloud-gcp-starter-logging[Spring Cloud GCP Logging
-Starter] to store and group logs by trace ID, with the Google Stackdriver Logging API.
+This sample application demonstrates using the spring-cloud-gcp-starter-logging Spring Cloud GCP Logging
+Starter to store and group logs by trace ID, with the Google Stackdriver Logging API.
 
 == Setup & Configuration
 1. Create a Google Cloud Platform Project
 2. Have the https://cloud.google.com/sdk/[Google Cloud SDK] installed, initialized and logged in with https://developers.google.com/identity/protocols/application-default-credentials[application default credentials].
 3. Check that the https://console.cloud.google.com/apis/library/logging.googleapis.com/?q=logging[Stackdriver Logging API is enabled].
+4. App Engine Java 11 private Alpha Please, become part of the App Engine link:https://docs.google.com/forms/d/e/1FAIpQLSf5uE5eknJjFEmcVBI6sMitBU0QQ1LX_J7VrA_OTQabo6EEEw/viewform [Alpha program for Java11] and wait for approval.
 
 == Running the Example
 Run the sample application from Maven:
@@ -25,9 +25,9 @@ $ curl --header "x-cloud-trace-context: [Some-Trace-ID]" localhost:8080/log
 To see the logged lines, navigate to the https://console.cloud.google.com/logs/viewer[Logging section of the Cloud Console].
 Select the `Global` resource and look under the `spring.log` channel to see the logged text.
 
-If your application is deployed to Google App Engine (GAE) or Google Kubernetes Engine (GKE), you will instead find the logs under the deployment's resource in the Stackdriver UI under the `spring.log` channel.
+If your application is deployed to Google App Engine (GAE), you will instead find the logs under the deployment's resource in the Stackdriver UI under the `spring.log` channel.
 You can further narrow down the log by request by using the following filtering text that takes advantage of the trace ID label in each logged line.
-For example, if deployed to App Engine (by using `mvn appengine:deploy` in this sample) you can use the following to filter by the trace ID:
+For example, when deployed to App Engine Java11 runtime (by using `mvn appengine:deploy` in this sample) you can use the following to filter by the trace ID:
 
 ----
  resource.type="gae_app"
