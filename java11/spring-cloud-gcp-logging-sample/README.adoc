@@ -7,7 +7,7 @@ Starter to store and group logs by trace ID, with the Google Stackdriver Logging
 1. Create a Google Cloud Platform Project
 2. Have the https://cloud.google.com/sdk/[Google Cloud SDK] installed, initialized and logged in with https://developers.google.com/identity/protocols/application-default-credentials[application default credentials].
 3. Check that the https://console.cloud.google.com/apis/library/logging.googleapis.com/?q=logging[Stackdriver Logging API is enabled].
-4. App Engine Java 11 private Alpha Please, become part of the App Engine link:https://docs.google.com/forms/d/e/1FAIpQLSf5uE5eknJjFEmcVBI6sMitBU0QQ1LX_J7VrA_OTQabo6EEEw/viewform [Alpha program for Java11] and wait for approval.
+4. App Engine Java 11 private Alpha Please, become part of the App Engine https://docs.google.com/forms/d/e/1FAIpQLSf5uE5eknJjFEmcVBI6sMitBU0QQ1LX_J7VrA_OTQabo6EEEw/viewform[Alpha program for Java11] and wait for approval.
 
 == Running the Example
 Run the sample application from Maven:
