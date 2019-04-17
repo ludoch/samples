@@ -46,7 +46,7 @@ This is a work in progress, but you can follow the changes in the samples Github
 * [Smallest-fatjar](https://github.com/ludoch/samples/java11/smallest-fatjar) : A very small "fat" (self-contained) jar using the embedded OpenJDK Web Server[a][b][c].
 * [Cloud Sql](https://github.com/ludoch/samples/java11cCloudsql): A Jetty9 based Web Application accessing Google Cloud SQL
 * [Cloud Sql-postgres](https://github.com/ludoch/samples/java11/cloudsql-postgres): A Jetty9 based Web Application accessing Google Cloud PostGreSQL
-* [Micronaut-hello-java11](https://github.com/ludoch/samples/java11/micronaut-hello-java11): A Micronaut micro web service fat jar application
+* [Micronaut-hello-java11](https://github.com/ludoch/samples/tree/master/java11/micronaut-hello-java11): A Micronaut micro web service fat jar application
 * [Spanner](https://github.com/ludoch/samples/java11/spanner): A Jetty9 based Web Application accessing Google Cloud Spanner
 * [Bigquery](https://github.com/ludoch/samples/java11/bigquery): A Jetty9 based Web Application accessing Google Cloud BigQuery
 * [Sparkjava](https://github.com/ludoch/samples/java11/sparkjava): A SparkJava framework fat jar application
