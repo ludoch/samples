@@ -22,11 +22,11 @@ import java.net.InetSocketAddress;
 public class Main {
 
   public static void main(String[] args) throws IOException {
-    HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
-    server.createContext("/", (var t) -> {
-      byte[] response = "Hello World from Google App Engine Java 11.".getBytes();
+    var server = HttpServer.create(new InetSocketAddress(8080), 0);
+    server.createContext("/", t -> {
+      var response = "Hello World from Google App Engine Java 11.".getBytes();
       t.sendResponseHeaders(200, response.length);
-      try (OutputStream os = t.getResponseBody()) {
+      try (var os = t.getResponseBody()) {
         os.write(response);
       }
     });
