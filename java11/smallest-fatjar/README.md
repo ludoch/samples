@@ -45,7 +45,6 @@ Here is the app.yaml:
 
 ```
 runtime: java11
-instance_class: F2
 ```
 
 There is no entrypoint in the configuration file, as the application is a single fat jar with the correct MANIFEST MainClass field.
