@@ -1,6 +1,8 @@
 # SpringBoot Google App Engine Java 11 Standard Application
 
 
+[![Run on Google AppEngine Java11](https://storage.cloud.google.com/java11/button.png)](https://deploy-java11.appspot.com/?git_repo=https://github.com/GoogleCloudPlatform/java-docs-samples.git&dir=appengine-java11/springboot-helloworld)
+
 ## Setup
 
 Before running and deploying this sample, take the following steps:
@@ -41,6 +43,4 @@ Here is the [app.yaml](src/manin/appengine/app.yaml):
 
 ```
 runtime: java11
-instance_class: F4
-entrypoint: 'java -XX:MaxRAM=256m -XX:ActiveProcessorCount=2 -Xmx32m -jar springboot-j11-0.0.1-SNAPSHOT.jar'
 ```
