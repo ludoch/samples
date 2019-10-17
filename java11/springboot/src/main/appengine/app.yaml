@@ -1,3 +1,1 @@
 runtime: java11
-instance_class: F4
-entrypoint: 'java -XX:MaxRAM=256m -XX:ActiveProcessorCount=2 -Xmx32m -jar springboot-j11-0.0.1-SNAPSHOT.jar'
