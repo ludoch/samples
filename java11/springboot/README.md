@@ -3,7 +3,7 @@
 
 [![Run in Google App Engine Java11][run_img]][run_link]
 
-[run_img]: https://storage.googleapis.com/ava11/appengine.svg
+[run_img]: https://storage.googleapis.com/java11/appengine.svg
 
 [run_link]: https://deploy-java11.appspot.com/?git_repo=https://github.com/GoogleCloudPlatform/java-docs-samples.git&dir=appengine-java11/springboot-helloworld
 
